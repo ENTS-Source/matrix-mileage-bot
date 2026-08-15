@@ -35,7 +35,7 @@ func generatePDFReport(displayName, userID, localpart, currency string, records 
 		pdf.SetFont("Arial", "", 10)
 		pdf.CellFormat(0, 6, t("Name: "+displayName), "", 1, "L", false, 0, "")
 		pdf.CellFormat(0, 6, t("Matrix user ID: "+userID), "", 1, "L", false, 0, "")
-		pdf.CellFormat(0, 6, t("Generated: "+generated.Format("2006-01-02")), "", 1, "L", false, 0, "")
+		pdf.CellFormat(0, 6, t("Generated: "+generated.Format("Jan 02, 2006")), "", 1, "L", false, 0, "")
 		pdf.Ln(3)
 	}
 
