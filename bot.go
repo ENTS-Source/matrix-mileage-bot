@@ -96,7 +96,7 @@ func (b *Bot) commandStart(ctx context.Context, evt *event.Event, fields []strin
 		return fmt.Errorf("invalid odometer: %w", err)
 	}
 	now := b.eventTime(evt)
-	if err := b.store.StartOdometer(string(evt.Sender), now.Format("2006-01-02"), b.cfg.Purpose, odo, now); err != nil {
+	if err := b.store.StartOdometer(string(evt.Sender), now.Format("Jan 02, 2006"), b.cfg.Purpose, odo, now); err != nil {
 		if errors.Is(err, ErrAlreadyActive) {
 			return fmt.Errorf("you already have an active odometer record; end it before starting another")
 		}
@@ -115,7 +115,7 @@ func (b *Bot) commandEnd(ctx context.Context, evt *event.Event, fields []string)
 		return fmt.Errorf("invalid odometer: %w", err)
 	}
 	now := b.eventTime(evt)
-	rec, err := b.store.EndOdometer(string(evt.Sender), now.Format("2006-01-02"), odo, now)
+	rec, err := b.store.EndOdometer(string(evt.Sender), now.Format("Jan 02, 2006"), odo, now)
 	if errors.Is(err, ErrNoActive) {
 		return fmt.Errorf("you do not have an active odometer record")
 	}
@@ -135,7 +135,7 @@ func (b *Bot) commandStandalone(ctx context.Context, evt *event.Event, fields []
 		return fmt.Errorf("invalid kilometers: %w", err)
 	}
 	now := b.eventTime(evt)
-	if _, err := b.store.AddStandalone(string(evt.Sender), now.Format("2006-01-02"), b.cfg.Purpose, km, now); err != nil {
+	if _, err := b.store.AddStandalone(string(evt.Sender), now.Format("Jan 02, 2006"), b.cfg.Purpose, km, now); err != nil {
 		return err
 	}
 	b.notice(ctx, evt.RoomID, fmt.Sprintf("Recorded %s km for %s.", formatKM(km), b.cfg.Purpose))
