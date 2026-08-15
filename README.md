@@ -1,5 +1,7 @@
 # Matrix Mileage Bot
 
+*This project is largely LLM-generated. See [prompt](https://chatgpt.com/share/6a7fcdc7-587c-83e8-9a8a-05d74ecea7bc) for details.*
+
 A small Matrix bot for recording mileage reimbursements and generating one PDF reimbursement report per person.
 
 It uses:
