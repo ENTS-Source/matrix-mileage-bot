@@ -2,3 +2,4 @@ config.yaml
 mileage.db
 mileage.db.lock
 *.pdf
+.idea/
