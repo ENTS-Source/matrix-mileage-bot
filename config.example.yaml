@@ -1,0 +1,25 @@
+matrix:
+  homeserver: "https://matrix.example.org"
+  user_id: "@mileage:example.org"
+  access_token: "YOUR_ACCESS_TOKEN"
+
+  # Optional. Empty means the bot accepts commands in any room it has joined.
+  allowed_room_ids:
+    - "!yourRoomId:example.org"
+
+authorized_users:
+  - "@treasurer:example.org"
+
+# Stored on each new mileage record. Existing records keep the purpose they were
+# created with even if this setting changes later.
+purpose: "2026 Move"
+
+timezone: "America/Edmonton"
+storage_path: "./mileage.db"
+
+reimbursement:
+  currency: "CAD"
+  tiers:
+    - up_to_km: 5000
+      rate_per_km: 0.73
+    - rate_per_km: 0.67
